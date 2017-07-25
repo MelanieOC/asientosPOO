@@ -1,0 +1,54 @@
+td{
+  width: 70px;
+  height: 30px;
+  text-align: center;
+  font-size: 170%;
+  border-radius: 25px;
+}
+.desocupado{
+  background-color: #08B72B;
+}
+.ocupado{
+  background-color: #F74438;
+}
+
+#Asiento{
+  background: #65E3F7;
+  width: 250px;
+  padding: 10px;
+  margin: 15px;
+  font-family:"Comic Sans MS";
+  border-style: groove;
+}
+#asientos{
+  border-style: groove;
+  width: 650px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#Reservar {
+  background: #06266A;
+  color: white;
+  width: 350px;
+  padding: 15px 15px;
+  margin: 15px;
+  font-family:"Comic Sans MS";
+  border-style: groove;
+}
+
+.lista {
+  background: pink;
+  width: 300px;
+  padding: 15px;
+  margin: 15px;
+  font-family:"Comic Sans MS";
+}
+button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  display: inline-block;
+  font-size: 18px;
+}
