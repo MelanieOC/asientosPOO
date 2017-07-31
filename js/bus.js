@@ -26,7 +26,7 @@ function asientos() {
     for(var j = 0; j<filas.length;j++){
       filas[j]='<tr>';
       for (var i = j+1; i <= this.asientos.length; i+=filas.length) {
-        var asiento = this.asientos[i];
+        var asiento = this.asientos[i-1];
         if(asiento!=undefined){
           filas[j] += '<td onclick="redirect(this)" class="ocupado">' + i + '</td>';
         } else {
@@ -43,7 +43,7 @@ function asientos() {
     html+= '<p>Apellidos: <input type="text" id="apellido" placeholder="Apellidos" required></p>';
     html+= '<p>DNI: <input type="number" id="dni" placeholder="DNI" required></p>';
     html+= '<p><input type="submit" onclick="Reservar()" value="Reservar"></p>'
-    return  html;
+    return  '<form id="Reservar"' + html + '</form>';
   }
 
   this.liberar=function(){
@@ -64,8 +64,7 @@ function redirect(event) {
   if(estadoCelda=='desocupado'){//si el asiento esta desocupada se mostrará en pantalla el formulario y el boton Reservar
     Contenido.innerHTML = asientos.formulario(asientos.numeroAsiento);
   } else { // si esta ocupada se mostrara los datos que contiene ese asiento y el boton cancelar
-    Contenido.innerHTML += asientos.asientos[asientos.numeroAsiento].toHTML();
-    Contenido.innerHTML += '<p><button onclick="Cancelar()">Cancelar</button></p>';
+    Contenido.innerHTML = asientos.asientos[asientos.numeroAsiento-1].toHTML() + '<p><button onclick="Cancelar()">Cancelar</button></p>';
   }
 }
 
@@ -73,9 +72,11 @@ function Reservar(){
   var name =  document.getElementById('nombre').value;
   var surname  = document.getElementById('apellido').value;
   var id = document.getElementById('dni').value;
-  asientos.asientos[asientos.numeroAsiento - 1] = new pasajero(asientos.numeroAsiento, name, surname, id); //se almacena en el array
-  document.getElementById('asientos').innerHTML =asientos.dibujarTabla();
-  limpiar();
+  if(name!='' && surname!='' && id!=''){
+    asientos.asientos[asientos.numeroAsiento - 1] = new pasajero(asientos.numeroAsiento, name, surname, id); //se almacena en el array
+    document.getElementById('asientos').innerHTML =asientos.dibujarTabla();
+    limpiar();
+  }
 }
 
 function limpiar() { //funcion para que borre el contenido
@@ -86,4 +87,5 @@ function limpiar() { //funcion para que borre el contenido
 function Cancelar(){
   asientos.liberar();
   document.getElementById('asientos').innerHTML =asientos.dibujarTabla();
+  limpiar();
 }
