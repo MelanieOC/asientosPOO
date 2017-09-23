@@ -36,6 +36,7 @@ function asientos() {
     }
     return '<table>'+ filas.reverse().join('</tr>')+'</table>';
   }
+  
   this.formulario = function(numero) {
     var html = '';
     html+='<p>Asiento N°' + numero + '</p>';
