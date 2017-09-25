@@ -57,8 +57,7 @@ class Bus{
         if(this.asientos[this.numAsiento-1]==undefined){
             this.celda.css('background-color','orange');
             this.formulario();
-        }
-        //console.log(this.asientos[this.numAsiento]);
+        } 
     }
     reservar(){
         let nombre = $('#nombre').val();
@@ -68,8 +67,11 @@ class Bus{
             this.asientos[this.numAsiento-1]= new Pasajero(this.numAsiento, nombre, apellido, dni); 
             this.celda.css('background-color','red');
             this.reiniciar();
+            console.log(this.asientos);
+        } else {
+            console.log('faltan datos');
         }
-        console.log(this.asientos);
+
     }
     reiniciar(){
         $('#nombre').val('').prop('readonly',true);
