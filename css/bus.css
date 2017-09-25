@@ -5,6 +5,44 @@ td{
   font-size: 170%;
   border-radius: 25px;
 }
+
+.input-close .row div{
+	padding: 0;
+}
+
+.input-close input{
+	width: 90%;
+	border:none;
+	outline: none;
+}
+.input-close{
+	border: 1px solid silver;
+	border-radius: 5px;
+	padding: 10px;
+	margin:10px 0;
+}
+
+#reservar{
+  padding: 50px;
+}
+.fila{
+  display: flex;
+  flex-wrap: wrap;
+}
+.celda {
+  background-color: #57EC89;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #808080;
+}
+/*
+#tabs{
+  border: 1px solid black;
+}
 .desocupado{
   background-color: #08B72B;
 }
@@ -22,7 +60,7 @@ td{
 }
 #asientos{
   border-style: groove;
-  width: 650px;
+  width: 450px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -44,11 +82,12 @@ td{
   font-family:"Comic Sans MS";
 }
 button{
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50; 
   border: none;
   color: white;
   padding: 12px;
   text-align: center;
   display: inline-block;
   font-size: 18px;
-}
+}*/
+

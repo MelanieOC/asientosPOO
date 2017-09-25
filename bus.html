@@ -1,22 +1,85 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Pasajes</title>
-    <link href="css/bus.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <center>
-      <h1>Elige tu asiento</h1>
-      <div id='asientos'></div>
-      <p><br></p>
-      <div id="Contenido"></div>
-      <div id="botones">
-        <button onclick="Busqueda()">Busqueda</button>
-        <button onclick="Listar()">Listar</button>
+
+<head>
+  <meta charset="utf-8">
+  <title>Pasajes</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bus.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+</head>
+
+<body>
+  <section class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div id="leyenda">
+
+        </div>
+        <div id="tabs">
+          <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a data-toggle="tab" href="#reservar">Reservar</a></li>
+            <li><a data-toggle="tab" href="#liberar">Liberar Asiento</a></li>
+            <li><a data-toggle="tab" href="#buscar">Buscar</a></li>
+            <li><a data-toggle="tab" href="#listar">Listar pasajeros</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div id="reservar" class="tab-pane fade in active">
+              <form>
+                <div class="input-close">
+                  <div class="row">
+                    <div class="col-sm-2 col-xs-2 text-center">
+                      <i class="fa fa-user-o fa-2x"></i>
+                    </div>
+                    <div class="col-sm-5 col-xs-5">
+                      <input type="text" id="nombre" placeholder="Nombre" required readonly>
+                    </div>
+                    <div class="col-sm-5 col-xs-5">
+                      <input type="text" id="apellido" placeholder="Apellido" required readonly>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-close">
+                  <div class="row">
+                    <div class="col-sm-2 col-xs-2 text-center">
+                      <i class="fa fa-address-card-o fa-2x"></i>
+                    </div>
+                    <div class="col-sm-8 col-xs-8">
+                      <input type="number" id="dni" placeholder="DNI" required readonly>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <button class="btn" id='btnReservar'>Reservar</button>
+            </div>
+            <div id="liberar" class="tab-pane fade">
+              <h3>Menu 1</h3>
+              <p>Some content in menu 1.</p>
+            </div>
+            <div id="buscar" class="tab-pane fade">
+              <h3>Menu 2</h3>
+              <p>Some content in menu 2.</p>
+            </div>
+            <div id="listar" class="tab-pane fade">
+              <h3>Menu 3</h3>
+              <p>Some content in menu 3.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id=mostrar></div>
-    </center>
-    <script src= 'js/bus.js'></script>
-  </body>
+      <div class="col-md-6">
+        <h1>Elige tu asiento</h1>
+        <div id='asientos'></div>
+        <p><br></p>
+        <div id="Contenido"></div>
+        <div id=mostrar></div>
+      </div>
+    </div>
+  </section>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src='js/main.js'></script>
+</body>
+
 </html>
