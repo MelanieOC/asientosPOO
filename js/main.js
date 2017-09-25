@@ -43,9 +43,9 @@ class Bus{
         return tabla;
     }
     formulario(){
-        $('#nombre').removeAttr('readonly');
-        $('#apellido').removeAttr('readonly');
-        $('#dni').removeAttr('readonly');
+        $('#nombre').prop('readonly',false);
+        $('#apellido').prop('readonly',false);
+        $('#dni').prop('readonly',false);
         $('#nombre').focus();
         $('#btnReservar').click(()=>this.reservar());
         //this.asientos[this.numAsiento]=new Pasajero();
@@ -72,9 +72,10 @@ class Bus{
         console.log(this.asientos);
     }
     reiniciar(){
-        $('#nombre').val('').removeAttr('readonly');
-        $('#apellido').val('').removeAttr('readonly');
-        $('#dni').val('').removeAttr('readonly');
+        $('#nombre').val('').prop('readonly',true);
+        $('#apellido').val('').prop('readonly',true);
+        $('#dni').val('').prop('readonly',true);
+        $('#btnReservar').off('click');
     }
     iniciar(){
         this.numeroAsientos=32;
