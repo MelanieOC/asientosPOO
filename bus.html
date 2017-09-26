@@ -12,6 +12,9 @@
 </head>
 
 <body>
+  <header class="text-center">
+    <h1>Reserva de Pasajes</h1>
+  </header>
   <section class="container">
     <div class="row">
       <div class="col-md-8">
@@ -22,12 +25,13 @@
           <ul class="nav nav-tabs nav-justified">
             <li class="active" id="tabReservar"><a data-toggle="tab" href="#reservar">Reservar</a></li>
             <li id="tabLiberar"><a data-toggle="tab" href="#liberar">Liberar Asiento</a></li>
-            <li><a data-toggle="tab" href="#buscar">Buscar</a></li>
+            <li id="tabBuscar"><a data-toggle="tab" href="#buscar">Buscar</a></li>
             <li id="tabListar"><a data-toggle="tab" href="#listar">Listar pasajeros</a></li>
           </ul>
 
           <div class="tab-content">
             <div id="reservar" class="tab-pane fade in active">
+              <p>Seleccione un asiento <span id="numero"></span></p>
               <form>
                 <div class="input-close">
                   <div class="row">
@@ -35,10 +39,10 @@
                       <i class="fa fa-user-o fa-2x"></i>
                     </div>
                     <div class="col-sm-5 col-xs-5">
-                      <input type="text" id="nombre" placeholder="Nombre" readonly>
+                      <input type="text" id="nombre" placeholder="Nombre" >
                     </div>
                     <div class="col-sm-5 col-xs-5">
-                      <input type="text" id="apellido" placeholder="Apellido" readonly>
+                      <input type="text" id="apellido" placeholder="Apellido">
                     </div>
                   </div>
                 </div>
@@ -48,7 +52,7 @@
                       <i class="fa fa-address-card-o fa-2x"></i>
                     </div>
                     <div class="col-sm-8 col-xs-8">
-                      <input type="number" id="dni" placeholder="DNI" readonly>
+                      <input type="number" id="dni" placeholder="DNI">
                     </div>
                   </div>
                 </div>
@@ -58,7 +62,7 @@
                 <strong>Faltan datos!</strong>
               </div>
               <div class="text-center">
-                <button class="btn" id='btnReservar'>Reservar</button>
+                <button class="btn" id='btnReservar'disabled>Reservar</button>
               </div>
             </div>
             <div id="liberar" class="tab-pane fade">
@@ -67,13 +71,14 @@
             <div id="buscar" class="tab-pane fade">
               <p>Ingrese el numero de DNI para empezar la busqueda</p>
               <div class="input-group">
-                <input type="text" class="search-query form-control" placeholder="Buscar DNI" id="dni-search" />
+                <input type="number" class="search-query form-control" placeholder="Buscar DNI" id="busqueda" />
                 <span class="input-group-btn">
-                    <button class="btn" type="button" >
+                    <button class="btn" id="btnBuscar" >
                       <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </span>
               </div>
+              <div id="encontrados"></div>
             </div>
             <div id="listar" class="tab-pane fade">
 
