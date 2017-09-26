@@ -4,13 +4,12 @@ class Pasajero {
         this.apellido = apellido;
         this.dni = dni;
         this.numero = numero;
-        this.ocupado = false;
     }
 
     toHTML() {
         let html = `<div class="well lista">
                     <strong>Asiento N°${this.numero}</strong><br>
-                    <strong>Psajero: </strong>${this.nombre} ${this.apellido}<br>
+                    <strong>Pasajero: </strong>${this.nombre} ${this.apellido}<br>
                     <strong>DNI: </strong>${this.dni}<br>
                  </div>`
         return html;
@@ -22,7 +21,7 @@ class Bus{
         this.asientos=[];
         this.numeroAsientos=undefined;
         this.numAsiento=undefined;
-        this.celda=undefined;
+        this.asientoSeleccionado=undefined;
     }
     dibujarTabla(){
         let tabla=$('<div>')
@@ -50,12 +49,12 @@ class Bus{
     elegirAsiento(div){
         $('.desocupado').css('background-color','#57EC89');
         this.numAsiento=parseInt(div.textContent);
-        this.celda=$(div);
+        this.asientoSeleccionado=$(div);
         if(this.asientos[this.numAsiento-1]==undefined){
-            this.celda.css('background-color','orange');
+            this.asientoSeleccionado.css('background-color','orange');
             this.formulario();
         } else {
-            console.log('hola');
+            console.log(this.numAsiento);
         }
     }
     reservar(){
@@ -64,7 +63,7 @@ class Bus{
         let dni=$('#dni').val();
         if (nombre != '' && apellido != '' && dni != '') {
             this.asientos[this.numAsiento-1]= new Pasajero(this.numAsiento, nombre, apellido, dni); 
-            this.celda.removeClass('desocupado').addClass('ocupado').css('background-color','red').prop('disabled',true);
+            this.asientoSeleccionado.removeClass('desocupado').addClass('ocupado').css('background-color','red').prop('disabled',true);
             this.reiniciar();
         } else {
             console.log('faltan datos');
