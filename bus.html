@@ -19,9 +19,9 @@
         <div id="tabs">
           <ul class="nav nav-tabs nav-justified">
             <li class="active"><a data-toggle="tab" href="#reservar">Reservar</a></li>
-            <li><a data-toggle="tab" href="#liberar">Liberar Asiento</a></li>
+            <li id="btnLiberar"><a data-toggle="tab"  href="#liberar">Liberar Asiento</a></li>
             <li><a data-toggle="tab" href="#buscar">Buscar</a></li>
-            <li><a data-toggle="tab" href="#listar">Listar pasajeros</a></li>
+            <li id="btnListar"><a data-toggle="tab" href="#listar">Listar pasajeros</a></li>
           </ul>
 
           <div class="tab-content">
@@ -33,10 +33,10 @@
                       <i class="fa fa-user-o fa-2x"></i>
                     </div>
                     <div class="col-sm-5 col-xs-5">
-                      <input type="text" id="nombre" placeholder="Nombre" required readonly>
+                      <input type="text" id="nombre" placeholder="Nombre" readonly>
                     </div>
                     <div class="col-sm-5 col-xs-5">
-                      <input type="text" id="apellido" placeholder="Apellido" required readonly>
+                      <input type="text" id="apellido" placeholder="Apellido" readonly>
                     </div>
                   </div>
                 </div>
@@ -46,7 +46,7 @@
                       <i class="fa fa-address-card-o fa-2x"></i>
                     </div>
                     <div class="col-sm-8 col-xs-8">
-                      <input type="number" id="dni" placeholder="DNI" required readonly>
+                      <input type="number" id="dni" placeholder="DNI" readonly>
                     </div>
                   </div>
                 </div>
@@ -63,8 +63,7 @@
               <p>Some content in menu 2.</p>
             </div>
             <div id="listar" class="tab-pane fade">
-              <h3>Menu 3</h3>
-              <p>Some content in menu 3.</p>
+              
             </div>
           </div>
         </div>

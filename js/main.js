@@ -31,7 +31,7 @@ class Bus{
             let fila = $('<div>').addClass('fila');
           for (let i = j + 1; i <= j + 4; i++) {
             let asiento = this.asientos[i - 1];
-            let celda = $('<div>').addClass('celda desocupado').html(i);
+            let celda = $('<button>').addClass('celda desocupado').html(i);
             if (i==j+2) {
                 celda.css('margin-right','40px');
             }
@@ -48,7 +48,6 @@ class Bus{
         $('#dni').prop('readonly',false);
         $('#nombre').focus();
         $('#btnReservar').click(()=>this.reservar());
-        //this.asientos[this.numAsiento]=new Pasajero();
     }
     elegirAsiento(div){
         $('.desocupado').css('background-color','#57EC89');
@@ -57,7 +56,9 @@ class Bus{
         if(this.asientos[this.numAsiento-1]==undefined){
             this.celda.css('background-color','orange');
             this.formulario();
-        } 
+        } else {
+            console.log('hola');
+        }
     }
     reservar(){
         let nombre = $('#nombre').val();
@@ -65,13 +66,21 @@ class Bus{
         let dni=$('#dni').val();
         if (nombre != '' && apellido != '' && dni != '') {
             this.asientos[this.numAsiento-1]= new Pasajero(this.numAsiento, nombre, apellido, dni); 
-            this.celda.css('background-color','red');
+            this.celda.removeClass('desocupado').addClass('ocupado').css('background-color','red').prop('disabled',true);
             this.reiniciar();
-            console.log(this.asientos);
         } else {
             console.log('faltan datos');
         }
-
+    }
+    liberar(){
+        $(".desocupado").prop('disabled',true);
+        $(".ocupado").prop('disabled',false);
+    }
+    listar(){
+        let ocupados = asientos.filter(a=>!undefined);
+        let lista='';
+        ocupados.forEach(a=>lista+=a.toHTML());
+        $("#listar").html(lista);
     }
     reiniciar(){
         $('#nombre').val('').prop('readonly',true);
