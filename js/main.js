@@ -78,6 +78,9 @@ class Bus {
     cancelar() {
         this.asientos[this.numAsiento - 1] = undefined;
         this.asientoSeleccionado.removeClass('ocupado').addClass('desocupado').prop('disabled', true);
+        this.tabLiberar();
+        $("#liberar").append('<div class="alert alert-success" role="alert">Asiento liberado</div>');
+
     }
     listar() {
         let ocupados = this.asientos.filter(a => !undefined);
