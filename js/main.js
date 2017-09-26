@@ -8,10 +8,9 @@ class Pasajero {
     }
 
     toHTML() {
-        let html = `<div class="lista">
+        let html = `<div class="well lista">
                     <strong>Asiento N°${this.numero}</strong><br>
-                    <strong>Nombres: </strong>${this.nombre}<br>
-                    <strong>Apellidos: </strong>${this.apellido}<br>
+                    <strong>Psajero: </strong>${this.nombre} ${this.apellido}<br>
                     <strong>DNI: </strong>${this.dni}<br>
                  </div>`
         return html;
@@ -33,9 +32,8 @@ class Bus{
             let asiento = this.asientos[i - 1];
             let celda = $('<button>').addClass('celda desocupado').html(i);
             if (i==j+2) {
-                celda.css('margin-right','40px');
+                celda.css('margin-right','45px');
             }
-            
             celda.appendTo(fila).click((e)=>this.elegirAsiento(e.currentTarget));
           }
           tabla.append(fila);
@@ -73,24 +71,36 @@ class Bus{
         }
     }
     liberar(){
-        $(".desocupado").prop('disabled',true);
+        $('.desocupado').css('background-color','#57EC89').prop('disabled',true);
         $(".ocupado").prop('disabled',false);
     }
     listar(){
-        let ocupados = asientos.filter(a=>!undefined);
-        let lista='';
-        ocupados.forEach(a=>lista+=a.toHTML());
-        $("#listar").html(lista);
+        let ocupados = this.asientos.filter(a=>!undefined);
+        if(ocupados.length==0){
+            $("#listar").html('No hay pasajeros');
+        } else {
+            let lista='';
+            ocupados.forEach(a=>lista+=a.toHTML());
+            $("#listar").html(lista);
+        }
     }
     reiniciar(){
+        $(".desocupado").prop('disabled',false);
+        $(".ocupado").prop('disabled',true);
         $('#nombre').val('').prop('readonly',true);
         $('#apellido').val('').prop('readonly',true);
         $('#dni').val('').prop('readonly',true);
         $('#btnReservar').off('click');
     }
+    eventos(){
+        $("#tabListar").click(()=>this.listar());
+        $("#tabLiberar").click(()=>this.liberar());
+        $("#tabReservar").click(()=>this.reiniciar());
+    }
     iniciar(){
         this.numeroAsientos=32;
         $('#asientos').html(this.dibujarTabla());
+        this.eventos();
     }
 }
 

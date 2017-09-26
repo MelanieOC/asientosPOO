@@ -31,13 +31,27 @@ td{
 }
 .celda {
   background-color: #57EC89;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  border: none;
+  border-radius: 10px;
+  height: 45px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #808080;
+  margin: 5px 2px;
+  outline: none;
+}
+
+#asientos::before{
+  content: url(../img/adelante.jpg);
+}
+
+#asientos>div{
+  border-style: groove;
+  width: 250px;
+  padding: 20px 2px;
+  margin-left: 8px;
 }
 /*
 #tabs{
@@ -58,12 +72,7 @@ td{
   font-family:"Comic Sans MS";
   border-style: groove;
 }
-#asientos{
-  border-style: groove;
-  width: 450px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+
 #Reservar {
   background: #06266A;
   color: white;
