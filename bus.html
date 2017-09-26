@@ -20,8 +20,8 @@
         </div>
         <div id="tabs">
           <ul class="nav nav-tabs nav-justified">
-            <li class="active" id="tabReservar" ><a data-toggle="tab" href="#reservar">Reservar</a></li>
-            <li id="tabLiberar"><a data-toggle="tab"  href="#liberar">Liberar Asiento</a></li>
+            <li class="active" id="tabReservar"><a data-toggle="tab" href="#reservar">Reservar</a></li>
+            <li id="tabLiberar"><a data-toggle="tab" href="#liberar">Liberar Asiento</a></li>
             <li><a data-toggle="tab" href="#buscar">Buscar</a></li>
             <li id="tabListar"><a data-toggle="tab" href="#listar">Listar pasajeros</a></li>
           </ul>
@@ -52,27 +52,31 @@
                     </div>
                   </div>
                 </div>
-                <!--<button type="submit" class="btn" id='btnReservar' value="Reservar">Reservar</button>-->
               </form>
-             <div class="text-center">
-              <button class="btn" id='btnReservar'>Reservar</button>
-             </div>
+              <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Faltan datos!</strong>
+              </div>
+              <div class="text-center">
+                <button class="btn" id='btnReservar'>Reservar</button>
+              </div>
             </div>
             <div id="liberar" class="tab-pane fade">
               <p>Escoja el asiento reservado a liberar</p>
             </div>
             <div id="buscar" class="tab-pane fade">
+              <p>Ingrese el numero de DNI para empezar la busqueda</p>
               <div class="input-group">
-                <input type="text" class="search-query form-control" placeholder="Buscar DNI" id="dni-search"/>
+                <input type="text" class="search-query form-control" placeholder="Buscar DNI" id="dni-search" />
                 <span class="input-group-btn">
                     <button class="btn" type="button" >
                       <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </span>
-            </div>
+              </div>
             </div>
             <div id="listar" class="tab-pane fade">
-              
+
             </div>
           </div>
         </div>

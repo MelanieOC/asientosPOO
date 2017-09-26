@@ -54,7 +54,7 @@ class Bus{
             this.asientoSeleccionado.css('background-color','orange');
             this.formulario();
         } else {
-            console.log(this.numAsiento);
+            this.cancelar();
         }
     }
     reservar(){
@@ -70,13 +70,19 @@ class Bus{
         }
     }
     liberar(){
+        $("#liberar .well").remove()
         $('.desocupado').css('background-color','#57EC89').prop('disabled',true);
         $(".ocupado").prop('disabled',false);
+    }
+    cancelar(){
+        let mostrar=this.asientos[this.numAsiento-1].toHTML();
+        $(mostrar).append('<button class="btn">Cancelar</button>');
+        $("#liberar").append(mostrar);
     }
     listar(){
         let ocupados = this.asientos.filter(a=>!undefined);
         if(ocupados.length==0){
-            $("#listar").html('No hay pasajeros');
+            $("#listar").html('<div class="alert alert-warning" role="alert">Aún no hay pasajeros</div>');
         } else {
             let lista='';
             ocupados.forEach(a=>lista+=a.toHTML());
