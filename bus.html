@@ -18,75 +18,83 @@
   <section class="container">
     <div class="row">
       <div class="col-md-8">
-        <div id="leyenda">
-
-        </div>
         <div id="tabs">
-          <ul class="nav nav-tabs nav-justified">
-            <li class="active" id="tabReservar"><a data-toggle="tab" href="#reservar">Reservar</a></li>
-            <li id="tabLiberar"><a data-toggle="tab" href="#liberar">Liberar Asiento</a></li>
-            <li id="tabBuscar"><a data-toggle="tab" href="#buscar">Buscar</a></li>
-            <li id="tabListar"><a data-toggle="tab" href="#listar">Listar pasajeros</a></li>
-          </ul>
-
-          <div class="tab-content">
-            <div id="reservar" class="tab-pane fade in active">
-              <p>Seleccione un asiento <span id="numero"></span></p>
-              <form>
-                <div class="input-close">
-                  <div class="row">
-                    <div class="col-sm-2 col-xs-2 text-center">
-                      <i class="fa fa-user-o fa-2x"></i>
+          <div id="leyenda">
+            <div class="col-md-4">Asiento seleccionado <span class="cuadrado" style="background-color:#6F9ADB">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            <div class="col-md-4">Asiento ocupado <span class="cuadrado ocupado">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            <div class="col-md-4">Asiento desocupado <span class="cuadrado desocupado">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+          </div>
+          <div class="panel with-nav-tabs panel-primary">
+            <div class="panel-heading">
+              <ul class="nav nav-tabs nav-justified">
+                <li class="active" id="tabReservar"><a data-toggle="tab" href="#reservar">Reservar</a></li>
+                <li id="tabLiberar"><a data-toggle="tab" href="#liberar">Liberar Asiento</a></li>
+                <li id="tabBuscar"><a data-toggle="tab" href="#buscar">Buscar</a></li>
+                <li id="tabListar"><a data-toggle="tab" href="#listar">Listar pasajeros</a></li>
+              </ul>
+            </div>
+            <div class="panel-body">
+              <div class="tab-content">
+                <div id="reservar" class="tab-pane fade in active">
+                  <p>Seleccione un asiento <span id="numero"></span></p>
+                  <form>
+                    <div class="input-close">
+                      <div class="row">
+                        <div class="col-sm-2 col-xs-2 text-center">
+                          <i class="fa fa-user-o fa-2x"></i>
+                        </div>
+                        <div class="col-sm-5 col-xs-5">
+                          <input type="text" id="nombre" placeholder="Nombre">
+                        </div>
+                        <div class="col-sm-5 col-xs-5">
+                          <input type="text" id="apellido" placeholder="Apellido">
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-sm-5 col-xs-5">
-                      <input type="text" id="nombre" placeholder="Nombre" >
+                    <div class="input-close">
+                      <div class="row">
+                        <div class="col-sm-2 col-xs-2 text-center">
+                          <i class="fa fa-address-card-o fa-2x"></i>
+                        </div>
+                        <div class="col-sm-8 col-xs-8">
+                          <input type="number" id="dni" placeholder="DNI">
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-sm-5 col-xs-5">
-                      <input type="text" id="apellido" placeholder="Apellido">
-                    </div>
+                  </form>
+                  <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Faltan datos!</strong>
+                  </div>
+                  <div class="text-center">
+                    <button class="btn" id='btnReservar' disabled>Reservar</button>
                   </div>
                 </div>
-                <div class="input-close">
-                  <div class="row">
-                    <div class="col-sm-2 col-xs-2 text-center">
-                      <i class="fa fa-address-card-o fa-2x"></i>
-                    </div>
-                    <div class="col-sm-8 col-xs-8">
-                      <input type="number" id="dni" placeholder="DNI">
-                    </div>
-                  </div>
+                <div id="liberar" class="tab-pane fade">
+                  <p>Escoja el asiento reservado a liberar</p>
                 </div>
-              </form>
-              <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Faltan datos!</strong>
-              </div>
-              <div class="text-center">
-                <button class="btn" id='btnReservar'disabled>Reservar</button>
-              </div>
-            </div>
-            <div id="liberar" class="tab-pane fade">
-              <p>Escoja el asiento reservado a liberar</p>
-            </div>
-            <div id="buscar" class="tab-pane fade">
-              <p>Ingrese el numero de DNI para empezar la busqueda</p>
-              <div class="input-group">
-                <input type="number" class="search-query form-control" placeholder="Buscar DNI" id="busqueda" />
-                <span class="input-group-btn">
-                    <button class="btn" id="btnBuscar" >
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </span>
-              </div>
-              <div id="encontrados"></div>
-            </div>
-            <div id="listar" class="tab-pane fade">
+                <div id="buscar" class="tab-pane fade">
+                  <p>Ingrese el numero de DNI para empezar la busqueda</p>
+                  <div class="input-group">
+                    <input type="number" class="search-query form-control" placeholder="Buscar DNI" id="busqueda" />
+                    <span class="input-group-btn">
+                                <button class="btn" id="btnBuscar" >
+                                  <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </span>
+                  </div>
+                  <div id="encontrados"></div>
+                </div>
+                <div id="listar" class="tab-pane fade">
 
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" align='center'>
         <div id='asientos'></div>
       </div>
     </div>

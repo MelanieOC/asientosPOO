@@ -40,12 +40,12 @@ class Bus {
         return tabla;
     }
     elegirAsiento(div) {
-        $('.desocupado').css('background-color', '#57EC89');
+        $('.desocupado').css('background-color', '#D9DCDF');
         this.numAsiento = parseInt(div.textContent);
         this.asientoSeleccionado = $(div);
         if (this.asientos[this.numAsiento - 1] == undefined) {
-            $("#numero").html(`Asiento Nº ${this.numAsiento}`);
-            this.asientoSeleccionado.css('background-color', 'orange');
+            $("#numero").html(`<strong>Asiento Nº ${this.numAsiento}</strong>`);
+            this.asientoSeleccionado.css('background-color', '#6F9ADB');
             $('#nombre').focus();
             $('#btnReservar').prop('disabled', false);
         } else {
@@ -58,15 +58,15 @@ class Bus {
         let dni = $('#dni').val();
         if (nombre != '' && apellido != '' && dni != '') {
             this.asientos[this.numAsiento - 1] = new Pasajero(this.numAsiento, nombre, apellido, dni);
-            this.asientoSeleccionado.removeClass('desocupado').addClass('ocupado').css('background-color', 'red').prop('disabled', true);
+            this.asientoSeleccionado.removeClass('desocupado').addClass('ocupado').prop('disabled', true);
             this.reiniciar();
         } else {
-            console.log('faltan datos');
+            $('.alert.alert-danger').show();
         }
     }
     tabLiberar() {
         $("#liberar").html('<p>Escoja el asiento reservado a liberar</p>')
-        $('.desocupado').css('background-color', '#57EC89').prop('disabled', true);
+        $('.desocupado').css('background-color', '#D9DCDF').prop('disabled', true);
         $(".ocupado").prop('disabled', false);
     }
     liberar() {
@@ -77,7 +77,7 @@ class Bus {
     }
     cancelar() {
         this.asientos[this.numAsiento - 1] = undefined;
-        this.asientoSeleccionado.removeClass('ocupado').addClass('desocupado').css('background-color', '#57EC89').prop('disabled', true);
+        this.asientoSeleccionado.removeClass('ocupado').addClass('desocupado').prop('disabled', true);
     }
     listar() {
         let ocupados = this.asientos.filter(a => !undefined);
@@ -89,10 +89,10 @@ class Bus {
             $("#listar").html(lista);
         }
     }
-    buscar(){
+    buscar() {
         $("#encontrados").empty();
         let busqueda = $('#busqueda').val();
-        let encontrado = this.asientos.filter(a=>!undefined&&a.dni==busqueda);
+        let encontrado = this.asientos.filter(a => !undefined && a.dni == busqueda);
         if (encontrado.length == 0) {
             $("#encontrados").html('<div class="alert alert-warning" role="alert">Sin resultados</div>');
         } else {
@@ -103,6 +103,11 @@ class Bus {
         $('#busqueda').val('');
     }
     reiniciar() {
+        $('.alert.alert-danger').hide();
+        $("#numero").empty();
+        $('#nombre').val('');
+        $('#apellido').val('');
+        $('#dni').val('');
         $(".desocupado").prop('disabled', false);
         $(".ocupado").prop('disabled', true);
         $('#btnReservar').prop('disabled', true);

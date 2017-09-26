@@ -1,3 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen|Poppins');
+body{
+  font-family: 'Poppins', sans-serif;
+}
+header{
+  color: white;
+  height: 100px;
+  background-color: #1C64A0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+#tabs{
+  padding: 50px;
+}
+.panel.with-nav-tabs {
+  margin-top: 50px;
+}
+.panel.with-nav-tabs .panel-heading{
+  padding: 5px 5px 0 5px;
+}
+.panel.with-nav-tabs .nav-tabs{
+  border-bottom: none;
+}
+.panel.with-nav-tabs .nav-justified{
+  margin-bottom: -1px;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li > a,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+    color: #fff;
+}
+.with-nav-tabs.panel-primary .nav-tabs > .open > a,
+.with-nav-tabs.panel-primary .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+	color: #fff;
+	background-color: #3071a9;
+	border-color: transparent;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a,
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a:focus {
+	color: #428bca;
+	background-color: #fff;
+	border-color: #428bca;
+	border-bottom-color: transparent;
+}
+#leyenda .cuadrado{
+  width: 20px;
+  height: 20px;
+}
 .input-close .row div{
 	padding: 0;
 }
@@ -13,7 +67,9 @@
 	padding: 10px;
 	margin:10px 0;
 }
-
+.alert.alert-danger{
+  display: none;
+}
 .tab-pane{
   padding: 50px;
 }
@@ -22,7 +78,6 @@
   flex-wrap: wrap;
 }
 .celda {
-  background-color: #57EC89;
   width: 45px;
   border: none;
   border-radius: 10px;
@@ -34,7 +89,12 @@
   margin: 5px 2px;
   outline: none;
 }
-
+.desocupado{
+  background-color: #D9DCDF;
+}
+.ocupado{
+  background-color: orange !important;
+}
 #asientos::before{
   content: url(../img/adelante.jpg);
 }
@@ -45,50 +105,12 @@
   padding: 20px 2px;
   margin-left: 8px;
 }
-/*
-#tabs{
-  border: 1px solid black;
-}
-.desocupado{
-  background-color: #08B72B;
-}
-.ocupado{
-  background-color: #F74438;
-}
 
-#Asiento{
-  background: #65E3F7;
-  width: 250px;
-  padding: 10px;
-  margin: 15px;
-  font-family:"Comic Sans MS";
-  border-style: groove;
+@media screen and (max-width: 920px) {
+  #tabs{
+    padding: 20px;
+  }
+  .tab-pane{
+    padding: 20px;
+  }
 }
-
-#Reservar {
-  background: #06266A;
-  color: white;
-  width: 350px;
-  padding: 15px 15px;
-  margin: 15px;
-  font-family:"Comic Sans MS";
-  border-style: groove;
-}
-
-.lista {
-  background: pink;
-  width: 300px;
-  padding: 15px;
-  margin: 15px;
-  font-family:"Comic Sans MS";
-}
-button{
-  background-color: #4CAF50; 
-  border: none;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  display: inline-block;
-  font-size: 18px;
-}*/
-
