@@ -73,7 +73,7 @@ class Bus {
         $("#liberar").empty();
         let mostrar = this.asientos[this.numAsiento - 1].toHTML();
         $("#liberar").append(mostrar);
-        $('<button>').addClass('btn').html('Liberar').click(() => this.cancelar()).appendTo("#liberar");
+        $('<button>').addClass('btn btn-primary').html('Liberar').click(() => this.cancelar()).appendTo("#liberar");
     }
     cancelar() {
         this.asientos[this.numAsiento - 1] = undefined;

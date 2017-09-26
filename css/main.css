@@ -48,9 +48,9 @@ header{
 	border-color: #428bca;
 	border-bottom-color: transparent;
 }
-#leyenda .cuadrado{
-  width: 20px;
-  height: 20px;
+.lista{
+  font-size: 120%;
+  font-family: 'Oxygen', sans-serif;
 }
 .input-close .row div{
 	padding: 0;
